@@ -12,6 +12,7 @@ public class PrintNTimes {
            return;
        System.out.println("Hi");
        Function(i+1,n);
+
     }
 
 }
