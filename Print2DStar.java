@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.Math.log10;
-import static java.lang.Math.sqrt;
+
 
 public class Print2DStar {
     public static void main(String[] args) {
@@ -17,11 +17,52 @@ public class Print2DStar {
 
         //print 7 and 8 together to get pattern 9
 //
- System.out.print(isGCD2(11,13));
+// System.out.print(isGCD2(11,13));
 //        isDivisors(36);
-        isPrime(11);
+//        isPrime(11);
+
+        int arr[]={1,2,3,4,5,6,7};
+        int n=arr.length;
+        int k=2;
+//        solve(arr,n);
+        leftRotate(arr,n,k);
+        for(int i=0;i<n;i++){
+            System.out.print(arr[i]+" ");
+        }
 
 
+    }
+    static void leftRotate(int arr[],int n, int k){
+        k=k%n;
+        if(k==n)
+            return;
+        if(k>n)
+            return;
+        int temp[]=new int[k];
+        for(int i=0;i<k;i++){
+            temp[i]=arr[i]; // temp[1,2]
+        }
+        for(int i=0;i<n-k;i++){//7-2=5 [1,2,3,4,5,6,7]
+            arr[i]=arr[i+k];
+        }
+        int j=0;
+        for(int i=n-k;i<n;i++){
+            arr[i]=temp[j]; // we can also use temp[i-n+k] 5 - 7 +2 =o instead of j=0 and j++;
+            j++;
+        }
+
+    }
+
+     static void solve(int[] arr, int n) {
+        int temp=arr[0];
+        for(int i=1;i<n;i++){
+            arr[i-1]=arr[i];
+
+        }
+        arr[n-1]=temp;
+         for(int i=0;i<n;i++){
+             System.out.print(arr[i]+" ");
+         }
     }
 
     static void print1(int n) {
@@ -309,6 +350,22 @@ public class Print2DStar {
         return gcd;
 
     }
+
+
+
+    /// /Fibanacci number
+
+    /// 0, 1, 1,2,3,5,8,13....
+    /*
+    Easy way is to write iterative for loop
+    f[0]=0
+    f[1]=1
+    for(i=2;i++;i<n){
+    f[i]=f[i-1]+f[i-2]
+             */
+    /// //Multiple recrusive call
+
+
 
 
 }
