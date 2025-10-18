@@ -32,7 +32,22 @@ public class Print2DStar {
 
 
     }
-    static void leftRotate(int arr[],int n, int k){
+    static void leftRotate(int arr[],int n,int k){
+        reverse(arr,0,k-1);
+        reverse(arr,k,n-1);
+        reverse(arr,0,n-1);
+    }
+    static void reverse(int arr[],int start, int end){
+        while(start<=end){
+            int temp=arr[start];
+            arr[start]=arr[end];
+            arr[end]=temp;
+            start++;
+            end--;
+        }
+    }
+
+    static void leftRotateBrute(int arr[],int n, int k){
         k=k%n;
         if(k==n)
             return;
